@@ -13,6 +13,7 @@ Rename `.env-sample` to `.env` and set your MySQL database credentials
 ```javascript
 nvm use 14
 npm install
+docker-compose up --build
 ```
 
-Navigate to [http://localhost:3000](http://localhost:3000)
+The API endpoints are served from [http://localhost:3000](http://localhost:3000)

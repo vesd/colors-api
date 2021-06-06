@@ -1,0 +1,31 @@
+version: '3'
+services:
+  colors-api:
+    build: .
+    volumes:
+      - '.:/app:delegated'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - colors-db
+    links:
+      - colors-db:colors-db
+    environment:
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+  colors-db:
+    image: mysql:5.7
+    environment:
+      SERVICE_NAME: colors-db
+      SERVICE_3306_NAME: colors-db
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+    ports:
+      - '4313:3306'
+    volumes:
+      - colors_db_data:/var/lib/mysql
+volumes:
+  colors_db_data:
