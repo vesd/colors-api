@@ -14,3 +14,15 @@ export const list = async (req, res): Promise<void> => {
 		});
 	}
 };
+
+export const create = async (req, res): Promise<void> => {
+	try {
+		const color = await dbService.addColor(req.body);
+
+		res.send(color);
+	} catch (err) {
+		res.status(500).send({
+			error: 'An error has occurred trying to create the color'
+		});
+	}
+};

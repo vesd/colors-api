@@ -8,10 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/colors', colors.list);
-
-router.post('/colors', (req, res) => {
-	res.send('POST /colors');
-});
+router.post('/colors', colors.create);
 
 router.delete('/colors/:colorId', (req, res) => {
 	res.send(`DELETE /colors/${req.params.colorId}`);
