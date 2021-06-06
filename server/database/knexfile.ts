@@ -9,7 +9,7 @@ const fetchConfiguration = () => {
 			user: process.env.MYSQL_USER,
 			password: process.env.MYSQL_PASSWORD,
 			database: process.env.MYSQL_DATABASE,
-		}
+		},
 	};
 };
 
@@ -21,6 +21,9 @@ export const getConfiguration = async (): Promise<any> => {
 		migrations: {
 			directory: path.resolve(__dirname, './migrations'),
 			tableName: 'db_migrations',
-		}
+		},
+		seeds: {
+			directory: path.resolve(__dirname, './seeds'),
+		},
 	};
 };

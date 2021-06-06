@@ -18,6 +18,7 @@ const createConnection = async (): Promise<void> => {
 const migrate = async (): Promise<void> => {
 	try {
 		await connection.migrate.latest();
+		await connection.seed.run();
 	} catch (err) {
 		console.log('database migrate failed:', err.message);
 	}

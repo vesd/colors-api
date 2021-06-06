@@ -15,4 +15,3 @@ export async function down(knex: Knex): Promise<void> {
 }
 
 export const config = { transaction: false };
-	
