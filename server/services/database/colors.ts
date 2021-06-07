@@ -17,9 +17,9 @@ export const getAllColors = async (): Promise<Color[]> => {
 	try {
 		const knex = getConnection();
 
-		const colors = await knex.raw(`SELECT name, HEX(hex) as hex FROM ${COLORS_TABLE}`);
+		const colors = await knex.raw(`SELECT id, name, HEX(hex) as hex FROM ${COLORS_TABLE}`);
 
-		return colors;
+		return colors[0];
 	} catch (err) {
 		console.log('Failed to retrieve colors', err.message);
 
@@ -47,7 +47,7 @@ export const removeColor = async (colorId: string): Promise<boolean> => {
 		const knex = getConnection();
 
 		await knex(COLORS_TABLE)
-			.where({ name: colorId })
+			.where({ id: colorId })
 			.del();
 
 		return true;
