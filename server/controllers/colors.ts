@@ -26,3 +26,15 @@ export const create = async (req, res): Promise<void> => {
 		});
 	}
 };
+
+export const remove = async (req, res): Promise<void> => {
+	try {
+		const result = await dbService.removeColor(req.params.colorId);
+
+		res.send(result);
+	} catch (err) {
+		res.status(500).send({
+			error: 'An error has occurred trying to delete the color'
+		});
+	}
+};

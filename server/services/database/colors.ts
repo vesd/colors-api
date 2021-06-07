@@ -25,6 +25,7 @@ export const addColor = async (reqBody: PostBody): Promise<any[]> => {
 	try {
 		const { name, hex } = reqBody;
 		const knex = getConnection();
+
 		const color = await knex.raw(`INSERT INTO ${COLORS_TABLE} (name, hex) VALUES ('${name}', UNHEX('${hex}'))`);
 
 		return color;
@@ -35,3 +36,18 @@ export const addColor = async (reqBody: PostBody): Promise<any[]> => {
 	}
 };
 
+export const removeColor = async (colorId: string): Promise<boolean> => {
+	try {
+		const knex = getConnection();
+
+		await knex(COLORS_TABLE)
+			.where({ name: colorId })
+			.del();
+
+		return true;
+	} catch (err) {
+		console.log('Failed to delete a color', err.message);
+
+		return false;
+	}
+};
