@@ -5,9 +5,15 @@ interface PostBody {
 	hex: string;
 }
 
+interface Color {
+	id: number;
+	name: string;
+	hex: string;
+}
+
 const COLORS_TABLE = 'colors';
 
-export const getAllColors = async (): Promise<any[]> => {
+export const getAllColors = async (): Promise<Color[]> => {
 	try {
 		const knex = getConnection();
 
@@ -21,7 +27,7 @@ export const getAllColors = async (): Promise<any[]> => {
 	}
 };
 
-export const addColor = async (reqBody: PostBody): Promise<any[]> => {
+export const addColor = async (reqBody: PostBody): Promise<Color[]> => {
 	try {
 		const { name, hex } = reqBody;
 		const knex = getConnection();
