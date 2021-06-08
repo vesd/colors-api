@@ -4,6 +4,8 @@ import * as cors from 'cors';
 import * as database from './database';
 import * as dotenv from 'dotenv';
 import apiRoutes from './routes/api';
+import authRoutes from './routes/auth';
+import './passport';
 
 dotenv.config();
 
@@ -17,7 +19,10 @@ const app = express();
 app.use(cors({ origin }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+
 app.get('/', (req: Request, res: Response) => res.send(`Hello from colors-api, port ${port}`));
 
 app.listen(port, () => console.log(`App is listening on port ${port}`));

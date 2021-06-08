@@ -1,5 +1,5 @@
 import { Knex } from 'knex';
-import { hashPassword } from '../../helpers/hash-password';
+import { hashPassword } from '../../helpers/password';
 
 export async function seed(knex: Knex): Promise<void> {
 	await knex('users').del();
