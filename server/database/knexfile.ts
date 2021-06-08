@@ -13,7 +13,8 @@ const fetchConfiguration = () => {
 	};
 };
 
-export const getConfiguration = async (): Promise<any> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getConfiguration = (): any => {
 	const configuration = fetchConfiguration();
 
 	return {

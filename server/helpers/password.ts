@@ -17,7 +17,7 @@ export const comparePassword = (candidatePassword: string, password: string): bo
 
 export const generateAccessToken = (user: User): string => {
 	const ONE_WEEK = 60 * 60 * 24 * 7;
-	const jwtSecret = process.env.JWT_SECRET || 'secret';
+	const jwtSecret = process.env.JWT_SECRET;
 
 	const token = jwt.sign(user, jwtSecret, { expiresIn: ONE_WEEK });
 

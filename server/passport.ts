@@ -6,7 +6,7 @@ import { getConnection } from './database';
 passport.use(
 	new JwtStrategy({
 		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-		secretOrKey: process.env.JWT_SECRET || 'secret'
+		secretOrKey: process.env.JWT_SECRET,
 	}, async function (jwtPayload, done) {
 		try {
 			const knex = getConnection();

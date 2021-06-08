@@ -8,7 +8,7 @@ An Express-based back-end service that interacts with a MySQL database to create
 
 ## How to run
 
-Rename `.env-sample` to `.env` and set your MySQL database credentials
+Rename `.env-sample` to `.env` and set your MySQL database credentials and jwt secret
 
 ```javascript
 nvm use 14

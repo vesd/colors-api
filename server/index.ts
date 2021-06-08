@@ -1,13 +1,13 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import * as express from 'express';
 import { Request, Response } from 'express';
 import * as cors from 'cors';
 import * as database from './database';
-import * as dotenv from 'dotenv';
 import apiRoutes from './routes/api';
 import authRoutes from './routes/auth';
 import './passport';
-
-dotenv.config();
 
 database.init();
 

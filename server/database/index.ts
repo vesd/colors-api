@@ -4,7 +4,7 @@ import { getConfiguration } from './knexfile';
 let connection = null;
 
 const createConnection = async (): Promise<void> => {
-	const config = await getConfiguration();
+	const config = getConfiguration();
 
 	try {
 		connection = knex(config);
