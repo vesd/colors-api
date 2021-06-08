@@ -11,7 +11,7 @@ interface Color {
 	hex: string;
 }
 
-const COLORS_TABLE = 'colors';
+export const COLORS_TABLE = 'colors';
 
 export const getAllColors = async (): Promise<Color[]> => {
 	try {
